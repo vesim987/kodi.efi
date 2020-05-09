@@ -1,5 +1,4 @@
-name: Buildroot
-
+name: intel-kodi-efi
 on:
   push:
     branches: [ master ]
@@ -8,9 +7,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v1
     - name: submodule checkout
@@ -20,7 +17,7 @@ jobs:
     - name: configure
       run: ./build.sh amd64_intel_kodi_defconfig
     - name: make
-      run: ./build.sh all
+      run: ./build.sh all -j3
     - name: Archive linux.efi
       uses: actions/upload-artifact@v1
       with:
