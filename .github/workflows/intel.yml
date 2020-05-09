@@ -14,6 +14,8 @@ jobs:
       run: |
         git submodule sync --recursive
         git submodule update --init --force --recursive --depth=1
+    - name: install autopoint
+      run: apt update && apt install autopoint
     - name: configure
       run: ./build.sh amd64_intel_kodi_defconfig
     - name: make
