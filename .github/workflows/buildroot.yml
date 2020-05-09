@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v2
     - name: configure
       run: ./build.sh amd64_intel_kodi_defconfig
     - name: make
